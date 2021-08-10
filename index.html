@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+        <title>JSON Visualization</title>
+
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="style.css">
+
+        <script defer="defer" src="js/jquery-3.2.1.min.js"></script>
+        <script defer="defer" src="js/jquery-ui-1.12.1.min.js"></script>
+        <script defer="defer" src="js/hand-1.3.11.min.js"></script>
+        <script defer="defer" src="js/babylon-3.0.min.js"></script>
+        <script defer="defer" src="visualizer.js"></script>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div id="demo">
+                <canvas id="visualizer-canvas" style="touch-action: none"></canvas>
+                <div id="slider-div"></div>
+            </div>
+            <div id="info">
+                <h1>Intro</h1>
+                <p>At first I thought I could simply scale each part of the bolt so that everything is proportional to the parameters in the JSON file, but for the threaded part of the bolt it wasn't that easy. Simply stretching out the threaded part of the bolt would "screw" up the thread pitch (you see what I did there?), so I had to actually split the threads into individual thread pieces (start, middle, and end) and scale/clone the middle piece appropriately when adding length to the threaded part of the bolt.</p>
+                <p>Other than that it was pretty straight forward. I found the bolt model for free from <a href="https://www.blendswap.com/">blendswap.com</a>, split it into individual pieces (head, grip, and threads (start,middle,end)) and imported it using Babylon.js. For the initial scale, the script loads the parameters from the JSON file, and if sliders are enabled by including the necessary div, they can be used to actually update the JSON file using save.php.</p>
+
+                <h1>Controls</h1>
+                <p class="bullet-statement"><strong>Rotate Camera:</strong> Hold and move mouse or swipe with finger on mobile.</p>
+                <p class="bullet-statement"><strong>Zoom:</strong> Mouse wheel or pinch on mobile. This can be weird at times when the page wants to scroll (I disabled scrolling on this page).</p>
+
+                <h1>Requirements</h1>
+                <p class="bullet-statement"><strong>Babylon.js</strong> - WebGL framework used for importing, modifying, and rendering the meshes.</p>
+                <p class="bullet-statement"><strong>Hand.js (mobile)</strong> - Framework that allows touch gestures to control the camera.</p>
+                <p class="bullet-statement"><strong>Jquery & Jquery UI (optional)</strong> - for the sliders that I used for modifying the JSON file. If you don't include the div for the sliders, these will not be necessary (<a href="nosliders.html">click here</a> to see it working without the modification sliders, the modifications should remain the same since the JSON file has already been saved).</p>
+                <p class="bullet-statement"><strong>Visualizer.js</strong> (my script) - reads/writes bolt.json and modifies the bolt mesh accordingly.</p>
+                <p class="bullet-statement"><strong>bolt.json</strong> must be located in the json directory.</p>
+                <p class="bullet-statement"><strong>bolt.babylon</strong> must be located in the models directory.</p>
+                <p class="bullet-statement"><strong>environment.dds (optional)</strong> can be placed in the textures directory if you want the bolt to look nice and shiny instead of just gray.</p>
+                <h1>Embedding</h1>
+                <p>Simply add the following line somewhere in your html, (but you'll probably want to put it in a container and do some css magic). </p>
+                <span class="code-statement">&lt;canvas id=&quot;visualizer-canvas&quot; style=&quot;touch-action: none&quot;&gt;&lt;/canvas&gt;</span>
+                <p><strong>*NOTE*</strong> 'touch-action: none' is necessary for camera movements to work on mobile (along with Hand.js).</p>
+                <p>Also, if your fond of sliders that can modify JSON files, you can include this and the script will add sliders for each bolt parameter (css not included).</p>
+                <span class="code-statement">&lt;div id=&quot;slider-div&quot;&gt;&lt;/div&gt;</span>
+
+                <h1>Problems / Potential Improvements</h1>
+                <p class="bullet-statement">Make camera move or look at appropriate point so that the entire bolt is in view when its size changes.</p>
+                <p class="bullet-statement">Allow camera panning. On desktop this could be done by holding a modifier like shift while moving the mouse. On mobile, maybe using two fingers at the same time, but I'm not sure how to do detect that.</p>
+                <p class="bullet-statement">JqueryUI sliders won't slide on mobile, you can only click on different points of the slider.</p>
+                <p class="bullet-statement">Make text larger as camera moves farther away.</p>
+                <p class="bullet-statement">Make certain slider values effect the range of others (for example, head width is usually not smaller than bolt width).</p>
+                <p class="bullet-statement">Camera zooms way too fast on mobile, probably need to change the zoom sensitivity when mobile is detected.</p>
+            </div>
+        </div>
+
+
+
+    </body>
+</html>

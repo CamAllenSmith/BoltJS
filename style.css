@@ -1,0 +1,99 @@
+body {
+    overflow-y: hidden;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+#wrapper {
+    width: 100%;
+    margin: 0;
+}
+#info {
+    padding-left: 1%;
+    font: 1.25rem "Open Sans";
+    width: 40%;
+    max-height: 100vh;
+    overflow-y: auto;
+    float: left;
+}
+#info h1{
+    font-size: 2rem;
+}
+#info p {
+
+}
+.bullet-statement {
+    list-style:disc outside none;
+    display:list-item;
+}
+.code-statement {
+    font-style: italic;
+    background-color: yellow;
+}
+#demo {
+    width: 55%;
+    float: right;
+}
+#visualizer-canvas {
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 640px;
+    height: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#slider-div {
+    width: 640px;
+    background-color: gray;
+    margin: auto;
+}
+.slider-container {
+    position: relative;
+    width: 620px;
+    padding: 10px;
+}
+.slider-value {
+    width: 3rem;
+    border: 0;
+    color: white;
+    font-family: "Open Sans";
+    font-size: 1.1rem;
+    background-color: rgba(0,0,0,0);
+}
+.slider-label {
+    left: 0;
+    display: inline-block;
+    font-family: "Open Sans";
+    margin: auto;
+    color: rgb(226, 215, 86);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.slider {
+    height: 18px;
+    border: 0;
+    right: 10px;
+    position: absolute;
+    width: 49%;
+    display: inline-block;
+}
+
+.centered {
+    width: 100%;
+    margin: auto;
+}
+@media (max-width: 1200px) {
+    #info {
+        display: none;
+    }
+    #demo {
+        width: 100%;
+        margin: auto;
+    }
+}

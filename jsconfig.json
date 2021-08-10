@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "checkJs": true, // this applies @ts-check to every js file
+      "lib": [ "es6", "dom", "es2017" ],
+      "target": "es2017",
+      "module": "commonjs",
+  
+      // WARNINGS
+      "noImplicitAny": true,
+      "noImplicitThis": true,
+      "noImplicitReturns": true,
+      "noUnusedParameters": true,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "noUnusedLocals": true
+      
+    },
+    "exclude": ["node_modules", "ion.sound.js"],
+  }
